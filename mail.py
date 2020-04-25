@@ -70,7 +70,7 @@ class Mail:
         """
         date = mail.get('Date')
         date = datetime.strptime(date[:-6], '%a, %d %b %Y %H:%M:%S')
-        return date.strftime('%Y%m%d-%H%M%S')
+        return date.strftime('%Y-%m-%d-%H-%M-%S')
 
     def processMail(self, mail):
         """
