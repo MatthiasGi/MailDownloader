@@ -44,6 +44,8 @@ class Mail:
         Checks for new mail to process on the server.
         """
         messages = self.server.search(['ALL'])
+        if len(messages) < 1: return
+
         for id, data in self.server.fetch(messages, 'RFC822').items():
             mail = email.message_from_bytes(data[b'RFC822'])
             self.processMail(mail)
